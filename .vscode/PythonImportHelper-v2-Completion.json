@@ -1,0 +1,200 @@
+[
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "jsonable_encoder",
+        "importPath": "fastapi.encoders",
+        "description": "fastapi.encoders",
+        "isExtraImport": true,
+        "detail": "fastapi.encoders",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class Item(BaseModel):\n    name:str\n    discription:Optional[str]=None\n    price:float\n    tax:float | None = None\n# Our Database as of now stored in a dictionary\nfake_items_db =[{\"item_name\": \"item1\"}, {\"item_description\": \"item1 description\"},\n                {\"item_name\": \"item2\"}, {\"item_description\": \"item2 description\"},\n                {\"item_name\": \"item3\"}, {\"item_description\": \"item3 description\"},\n                {\"item_name\": \"item4\"}, {\"item_description\": \"item4 description\"},",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class Item(BaseModel):\n    name:str\n@app.put(\"/new_items/{item_id}\")\ndef update_item(item_id:int, item:Item=Body(..., embed=True)):\n    return {\"item_id\": item_id,\"item\":item}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_post_by_id",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_post_by_id(id: int):\n    return {\"message\": f\"This is get post by id route with current id: {id}\"}\n@app.delete(\"/delete/{id}\")\ndef delete_post(id: int):\n    return {\"message\": f\"This is delete route for id: {id}\".format(id)}\n#routes related to user information\n# get all users\n@app.get(\"/all_users\")\ndef get_all_user():\n    return {\"message\": \"This is gets all users route\"}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "delete_post",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def delete_post(id: int):\n    return {\"message\": f\"This is delete route for id: {id}\".format(id)}\n#routes related to user information\n# get all users\n@app.get(\"/all_users\")\ndef get_all_user():\n    return {\"message\": \"This is gets all users route\"}\n@app.post(\"/user/{id}\")\ndef get_user_by_id(id: int):\n    return {\"message\": f\"This is get user by id route with current id: {id}\"}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_user",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_all_user():\n    return {\"message\": \"This is gets all users route\"}\n@app.post(\"/user/{id}\")\ndef get_user_by_id(id: int):\n    return {\"message\": f\"This is get user by id route with current id: {id}\"}\n@app.get(\"/user/me\")\ndef get_current_user():\n    return {\"message\": f\"This is get current user with {id} route\"}\n# get all items\n@app.get(\"/all-items\",response_class=JSONResponse)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_by_id",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_user_by_id(id: int):\n    return {\"message\": f\"This is get user by id route with current id: {id}\"}\n@app.get(\"/user/me\")\ndef get_current_user():\n    return {\"message\": f\"This is get current user with {id} route\"}\n# get all items\n@app.get(\"/all-items\",response_class=JSONResponse)\ndef get_all_items(skip:int=0, limit:int=10):\n        return JSONResponse(fake_items_db[skip: skip+limit])\n@app.put(\"/items/{id}\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_current_user():\n    return {\"message\": f\"This is get current user with {id} route\"}\n# get all items\n@app.get(\"/all-items\",response_class=JSONResponse)\ndef get_all_items(skip:int=0, limit:int=10):\n        return JSONResponse(fake_items_db[skip: skip+limit])\n@app.put(\"/items/{id}\")\ndef update_item(id: str, item: Item):\n    json_compatible_item_data = jsonable_encoder(item)\n    return JSONResponse(content=json_compatible_item_data)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_items",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_all_items(skip:int=0, limit:int=10):\n        return JSONResponse(fake_items_db[skip: skip+limit])\n@app.put(\"/items/{id}\")\ndef update_item(id: str, item: Item):\n    json_compatible_item_data = jsonable_encoder(item)\n    return JSONResponse(content=json_compatible_item_data)\n# get item rate including taxes\n@app.post(\"/item\")\ndef create_item(item: Item):\n    item_rate = item.model_dump()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "update_item",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def update_item(id: str, item: Item):\n    json_compatible_item_data = jsonable_encoder(item)\n    return JSONResponse(content=json_compatible_item_data)\n# get item rate including taxes\n@app.post(\"/item\")\ndef create_item(item: Item):\n    item_rate = item.model_dump()\n    if item.tax:\n        price_with_tax = item.price + item.tax\n        item_rate.update({\"price_with_tax\":price_with_tax})",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "create_item",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def create_item(item: Item):\n    item_rate = item.model_dump()\n    if item.tax:\n        price_with_tax = item.price + item.tax\n        item_rate.update({\"price_with_tax\":price_with_tax})\n    return item_rate\n#Passing numeric query parameters\n@app.get(\"/items_validation{item_id}\")\ndef get_item_validation(*,item_id: int=Path(..., title=\"The ID to get\"), \n                        q:str, size: float=Query(..., gt=0, lt=7.75)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_item_validation",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_item_validation(*,item_id: int=Path(..., title=\"The ID to get\"), \n                        q:str, size: float=Query(..., gt=0, lt=7.75)\n):\n        results={\"item_id\": item_id, \"size\":size}\n        if q:\n            results.update({\"q\": q},**results)\n        return results\n# Passing Multiple query parameters\n@app.put(\"/new_items/{item_id}\")\nasync def update_item(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "update_item",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def update_item(item_id:int, item:Item=Body(..., embed=True)):\n    return {\"item_id\": item_id,\"item\":item}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI()\n'''\n# A post request will have to contain the following fields with the following data types, this is a pydantic model\n# What must a post req contain is declared in the pydantic model\n#declare BaseModel\nclass Item(BaseModel):\n    name:str\n    discription:Optional[str]=None\n    price:float\n    tax:float | None = None",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "N",
+        "kind": 5,
+        "importPath": "x",
+        "description": "x",
+        "peekOfCode": "N = int(input(f\"\\nEnter the no till which you want to display the results of a fibonacci sequence  \"))\nfib_no=0\nfib=[0,1]\nfor k in range(N-2):\n    fib_next = fib[k+1]+fib[k]\n    fib.append(fib_next)\nprint(f\"\\nFor {N}, highets value of fibonacci sequence is {fib[-1]}\")\nprint(f\"\\n{fib}\")\n'''",
+        "detail": "x",
+        "documentation": {}
+    }
+]
